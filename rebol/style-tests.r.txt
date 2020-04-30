@@ -1,0 +1,34 @@
+stylize/master [
+    area: area wrap white white edge [size: 0x0] font [ size: 10 name: "fixedsys"] 
+    link: text font [size: 12 name: "fixedsys" color: blue style: []] edge [size: 0x0] 
+    field: field white white edge [size: 0x0]
+    h3: h3 font [name: "fixedsys" style: []] 
+] 
+
+view layout [ area "The quick brown fox jumped over the lazy dog" ] 
+do-events
+
+
+; bitmap fonts 
+
+doit: func [ arg ] [
+	unview
+	view layout compose/deep [ 
+		style area area wrap white white edge [size: 0x0] font [ size: 20 name: (arg) ] 
+		area "The quick brown fox jumped over the lazy dog" 
+	] 
+	do-events
+]
+
+doit "fixedsys"
+doit "times"
+doit "times"
+
+
+
+unview
+view layout compose/deep [ 
+	style area area wrap white white edge [size: 0x0] font [ size: 40  name: "vgafix.fon" ]
+	area "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG"
+] 
+do-events
